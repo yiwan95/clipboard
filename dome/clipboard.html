@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 引入clipboard.min.js -->
+		<script src="../js/clipboard.min.js"></script>
+		
+		
+		
+		<h3>dom1复制div里面data-clipboard-text的内容</h3> 
+		<h5>constructor-node</h5>
+		
+		<div id="btn" data-clipboard-text="yiwan111">
+		<span>Copy1</span>
+		</div>
+		<br>
+		
+		<h3>dom2复制button里面data-clipboard-text的内容</h3>
+		<h5>constructor-nodelist</h5>
+		
+		<button data-clipboard-text="yiwan212">Copy2</button>
+		<button data-clipboard-text="yiwan222">Copy2</button>
+		<button data-clipboard-text="yiwan232">Copy2</button>
+		<br>
+		<br>
+		
+		<h3>dom3复制button里面data-clipboard-text的内容</h3>
+		<h5>constructor-selector</h5>
+	
+		<button class="btn" data-clipboard-text="yiwan313">Copy3</button>
+		<button class="btn" data-clipboard-text="yiwan323">Copy3</button>
+		<button class="btn" data-clipboard-text="yiwan333">Copy3</button>
+		<br>
+		<br>
+		
+		<h3>dom4通过buttom按钮复制span里面的内容</h3>
+		<h5>function-target</h5>
+		<button class="btn2">Copy4</button>
+		<span class="span2">yiwan44</span>
+		<br>
+		<br>
+		
+		
+		<h3>dom5通过buttom按钮复制js里面的内容</h3>
+		<h5>function-text</h5>
+		<button class="btn3">Copy5</button>
+		<br>
+		<br>
+		
+		
+		<h3>dom6通过buttom按钮复制span里面的内容</h3>
+		<h5>target-span</h5>
+		<span class="span3">yiwan666</span>
+		<button class="btn" data-clipboard-action="copy" data-clipboard-target="span.span3">Copy6</button>
+		<br>
+		<br>
+		
+		<h3>dom7通过buttom按钮复制input标签value里面的内容</h3>
+		<h5>target-input</h5>
+		<input id="qi" type="text" value="yiwan777">
+		<button class="btn5" data-clipboard-action="copy" data-clipboard-target="#qi">Copy</button>
+		<br>
+		<br>
+		
+		
+		
+		<h3>dom8通过buttom按钮复制textarea标签value里面的内容</h3>
+		<h5>target-input</h5>
+		<textarea id="ba">yiwan888</textarea>
+		<button class="btn6" data-clipboard-action="cut" data-clipboard-target="#ba">Cut</button>
+		<br>
+		<br>
+		
+		<script>
+		// dom1	
+		var btn = document.getElementById('btn');
+		var clipboard = new ClipboardJS(btn);
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		
+		// dom2
+		var btns = document.querySelectorAll('button');
+		var clipboard = new ClipboardJS(btns);
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		
+		
+		// dome3
+		var clipboard = new ClipboardJS('.btn');
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		
+		
+		// dom4
+		var clipboard = new ClipboardJS('.btn2', {
+		    target: function() {
+		        return document.querySelector('span.span2');
+		    }
+		});
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		
+		// dom5
+		var clipboard = new ClipboardJS('.btn3', {
+		    text: function() {
+		        return 'yiwan555';
+		    }
+		});
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		// dom6
+		var clipboard = new ClipboardJS('.btn4');
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		
+		// dom7
+		var clipboard = new ClipboardJS('.btn5');
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		
+		// dome8
+		var clipboard = new ClipboardJS('.btn6');
+		
+		clipboard.on('success', function(e) {
+		    console.log(e);
+		});
+		
+		clipboard.on('error', function(e) {
+		    console.log(e);
+		});
+		</script>
+	</body>
+</html>
